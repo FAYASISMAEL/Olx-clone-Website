@@ -13,10 +13,10 @@ const __dirname = dirname(file_name);
 const Client = join(__dirname, '..', 'Client');
 
 app.use(express.static(Client));
-app.use(express.json({limit: '150mb'}));
+app.use(express.json({ limit: '150mb' }));
 app.use(cors());
 app.use('/api', data_routes);
-app.use('/images',express.static(path.join(__dirname,'images')))
+app.use('/images', express.static(path.join(__dirname, 'images')))
 
 connection().then(() => {
   app.listen(port, () => {

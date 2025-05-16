@@ -37,7 +37,7 @@ const Home = () => {
     } catch (error) {
       console.error('Error fetching data:', error);
       setError('Failed to load ads. Showing sample data instead.');
-      setAds(dummyAds);
+      // setAds(dummyAds);
       localStorage.setItem('carAds', JSON.stringify(dummyAds));
       setLoading(false);
     }

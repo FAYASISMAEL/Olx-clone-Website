@@ -236,11 +236,11 @@ const SellerInfo = ({ ad }) => {
   const [successMessage, setSuccessMessage] = useState('');
 
   const originalPrice = parseInt(ad.price) || 0;
-  const minOffer = originalPrice * 0.9; // 90% of original price
-  const maxOffer = originalPrice; // 100% of original price
+  const minOffer = originalPrice * 0.9;
+  const maxOffer = originalPrice;
 
   const handleOfferChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, ''); // Allow only numbers
+    const value = e.target.value.replace(/[^0-9]/g, '');
     setOfferAmount(value);
     const numericValue = parseInt(value) || 0;
 
@@ -256,22 +256,24 @@ const SellerInfo = ({ ad }) => {
     }
   };
 
-  const handleSubmitOffer = async() => {
+  const handleSubmitOffer = async () => {
 
     const email = localStorage.getItem("email")
 
-    const response = await axios.get("http://localhost:3000/api/offer",{params:{
+    const response = await axios.post("http://localhost:3000/api/offer", {
+      params: {
 
-      sellerMail:ad.email,
-      buyerMail:email,
-      brand:ad.brand,
-      name:ad.name,
-      price:ad.price,
-      offer:offerAmount,
-      state:ad.location.state,
-      district:ad.location.district,
-      city:ad.location.city
-    }})
+        sellerMail: ad.email,
+        buyerMail: email,
+        brand: ad.brand,
+        name: ad.name,
+        price: ad.price,
+        offer: offerAmount,
+        state: ad.location.state,
+        district: ad.location.district,
+        city: ad.location.city
+      }
+    })
     console.log(response)
 
     if (isValidOffer) {
@@ -377,9 +379,8 @@ const SellerInfo = ({ ad }) => {
               </button>
               <button
                 onClick={handleSubmitOffer}
-                className={`px-4 py-2 rounded text-white ${
-                  isValidOffer ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
-                }`}
+                className={`px-4 py-2 rounded text-white ${isValidOffer ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
+                  }`}
                 disabled={!isValidOffer}
               >
                 Submit
