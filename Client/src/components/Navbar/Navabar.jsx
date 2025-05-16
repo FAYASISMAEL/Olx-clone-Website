@@ -113,10 +113,10 @@ const Navbar = () => {
         </div>
 
         {/* Like Button */}
-        <img src={like} alt="Like Icon" onClick={redFav} className="w-12 cursor-pointer mx-1 sm:ml-5" />
+        <img src={like} alt="Like Icon" onClick={redFav} className="w-8 h-8 sm:w-13 sm:h-8 cursor-pointer mx-1 sm:ml-5" />
 
         {/* Message Button */}
-        <img src={message} alt="Message Icon" className="w-12 cursor-pointer mx-1 sm:ml-5 sm:mr-5" />
+        <img src={message} alt="Message Icon" className="w-8 h-8 sm:w-13 sm:h-8 cursor-pointer mx-1 sm:ml-5 sm:mr-5" />
 
         {/* Profile */}
         <div className="ml-5">
@@ -124,7 +124,7 @@ const Navbar = () => {
             <img
               src={profilePicture}
               alt="Profile"
-              className="w-10 h-10 rounded-full cursor-pointer object-cover aspect-square profile-img"
+              className="w-10 h-10 sm:w-15 sm:h-10 rounded-full mr-2 cursor-pointer"
               onClick={toggleDropdown}
             />
           ) : (

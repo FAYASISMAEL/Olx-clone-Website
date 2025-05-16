@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Car = () => {
+
+
+  const profile = localStorage.getItem("profilePicture")
+  console.log("this sd fsdfsd",profile)
   const [formData, setFormData] = useState({
     brand: '',
     carName: '',
@@ -154,7 +158,7 @@ const Car = () => {
       { key: 'year', value: formData.year },
       { key: 'fuel', value: formData.fuel },
       { key: 'transmission', value: formData.transmission },
-      { key: 'noOfOwners', value: formData.noOfOwners },
+      { key: 'owners', value: formData.noOfOwners },
       { key: 'adTitle', value: formData.adTitle },
       { key: 'description', value: formData.description },
       { key: 'price', value: formData.price },
@@ -202,6 +206,7 @@ const Car = () => {
       formDataToSend.append('location[district]', location.district);
       formDataToSend.append('location[city]', location.city);
       formDataToSend.append("email",email)
+      formDataToSend.append("profilePicture",profile)
 
       formData.images.forEach((image) => {
         formDataToSend.append('file', image);
@@ -264,12 +269,46 @@ const Car = () => {
                   >
                     <option value="">Select Brand</option>
                     {[
-                      'Maruthi Suzuki', 'Hyundai', 'Tata', 'Mahindra', 'Toyota', 'Honda', 'BYD', 'Audi',
-                      'Ashok Leyland', 'Aston Martin', 'Bentley', 'Citroen', 'Tesla', 'BMW', 'Chevrolet',
-                      'Datsun', 'Ferrari', 'Ford', 'Fiat', 'Force Motors', 'Isuzu', 'Jaguar', 'Jeep',
-                      'Kia', 'Lexus', 'Lamborgini', 'Land Rover', 'Renault', 'Maybach', 'Mazda',
-                      'Mercedez Benz', 'MG', 'Mini Cooper', 'Mistubishi', 'Nissan', 'Porsche',
-                      'Rolls Royce', 'Skoda', 'Volkswagon', 'Volvo',
+                      'Maruthi Suzuki', 
+                      'Hyundai', 
+                      'Tata', 
+                      'Mahindra', 
+                      'Toyota', 
+                      'Honda', 
+                      'BYD', 
+                      'Audi',
+                      'Ashok Leyland', 
+                      'Aston Martin', 
+                      'Bentley', 
+                      'Citroen', 
+                      'Tesla', 
+                      'BMW',
+                      'Chevrolet',
+                      'Datsun', 
+                      'Ferrari', 
+                      'Ford', 
+                      'Fiat', 
+                      'Force Motors', 
+                      'Isuzu', 
+                      'Jaguar', 
+                      'Jeep',
+                      'Kia', 
+                      'Lexus', 
+                      'Lamborgini', 
+                      'Land Rover', 
+                      'Renault', 
+                      'Maybach', 
+                      'Mazda',
+                      'Mercedes Benz', 
+                      'MG', 
+                      'Mini Cooper', 
+                      'Mistubishi', 
+                      'Nissan', 
+                      'Porsche',
+                      'Rolls Royce',
+                      'Skoda', 
+                      'Volkswagon', 
+                      'Volvo',
                     ].map((brand) => (
                       <option key={brand} value={brand}>{brand}</option>
                     ))}

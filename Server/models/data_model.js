@@ -21,6 +21,10 @@ const postSchema = new mongoose.Schema({
     km_driven:{type:String,required:true},
 
     like: [{type:String}],
+
+    profilePicture:{type:String,default:null},
+
+
 })
 
 export default mongoose.model.post || mongoose.model('Posts',postSchema);
